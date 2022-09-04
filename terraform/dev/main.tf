@@ -108,3 +108,7 @@ module "my_s3_buckets" {
   subnet_cidrs            = concat(module.my_vpc.public_subnet_cidrs, module.my_vpc.webserver_subnet_cidrs, module.my_vpc.db_subnet_cidrs)
 }
 
+resource "local_file" "subnet_ids" {
+    content  = join(", ", module.my_vpc.public_subnet_ids)
+    filename = "subnets.txt"
+}
