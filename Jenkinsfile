@@ -61,6 +61,7 @@ pipeline {
                         sh 'docker login -u gowthama97 -p ${pass}'
                         sh 'kubectl create secret docker-registry regcred --docker-username=gowthama97 --docker-password=${pass} --docker-email=gowthamarajan97@gmail.com -n default'
                     }
+                    sh 'sh ./kubernetes/alb_controller_install.sh'
                     sh 'kubectl apply -f ./kubernetes/deployment/'
                 }
             }
