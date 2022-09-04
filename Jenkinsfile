@@ -69,7 +69,7 @@ pipeline {
 }
 
 def getDockerTag() {
-    git credentialsId: 'MyGitHubCred', url: 'https://github.com/gowthamathangam14041997/docker-project'
+    git credentialsId: 'MyGitHubCred', url: 'https://github.com/gowthamathangam14041997/epam-incubation'
     tag  = sh script: 'git rev-parse --short HEAD', returnStdout: true
     return tag
 }
