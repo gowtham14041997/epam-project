@@ -15,7 +15,7 @@ pipeline {
     stages {
         stage('Git checkout') {
             steps {
-                git credentialsId: 'MyGitHubCred', url: 'https://github.com/gowthamathangam14041997/epam-incubation'
+                git credentialsId: 'MyGitHubCred', url: 'https://github.com/gowtham14041997/epam-project'
             }
         }
         stage('Terraform Infra') {
@@ -70,7 +70,7 @@ pipeline {
 }
 
 def getDockerTag() {
-    git credentialsId: 'MyGitHubCred', url: 'https://github.com/gowthamathangam14041997/epam-incubation'
+    git credentialsId: 'MyGitHubCred', url: 'https://github.com/gowtham14041997/epam-project'
     tag  = sh script: 'git rev-parse --short HEAD', returnStdout: true
     return tag
 }
